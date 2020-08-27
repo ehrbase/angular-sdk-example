@@ -6,7 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.nedap.archie.rm.generic.PartyProxy;
 import org.ehrbase.client.openehrclient.defaultrestclient.TemporalAccessorDeSerializer;
+import org.ehrbase.numappbackend.deserialization.AnatomischeLokalisationDiagnostischeSicherheitChoiceDeserializer;
+import org.ehrbase.numappbackend.deserialization.AtiopathogeneseChoiceDeserializer;
+import org.ehrbase.numappbackend.deserialization.AtiopathogeneseSchweregradChoiceDeserializer;
 import org.ehrbase.numappbackend.deserialization.PartyProxyDeserializer;
+import org.ehrbase.numappbackend.opt.diagnosecomposition.definition.AnatomischeLokalisationDiagnostischeSicherheitChoice;
+import org.ehrbase.numappbackend.opt.diagnosecomposition.definition.AtiopathogeneseChoice;
+import org.ehrbase.numappbackend.opt.diagnosecomposition.definition.AtiopathogeneseSchweregradChoice;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -28,18 +34,11 @@ public class JacksonConfig {
         builder.deserializerByType(TemporalAccessor.class, new TemporalAccessorDeSerializer());
         builder.deserializerByType(PartyProxy.class, new PartyProxyDeserializer());
 
-/*
         // deserializer for *Choice classes
-        builder.deserializerByType(ScreeningFragebogenZurSymptomenAnzeichenBeliebigesEreignisChoice.class,
-                new ScreeningFragebogenZurSymptomenAnzeichenBeliebigesEreignisChoiceDeSerializer());
-        builder.deserializerByType(KontaktOrgEhrbaseEhrEncodeWrappersSnakecase743c6ce4ExposureScreeningQuestionnaireEnChoice.class,
-                new KontaktOrgEhrbaseEhrEncodeWrappersSnakecase743c6ce4ExposureScreeningQuestionnaireEnChoiceDeSerializer());
-        builder.deserializerByType(ReisefallBeliebigesIntervallereignisChoice.class,
-                new ReisefallBeliebigesIntervallereignisChoiceDeSerializer());
-        builder.deserializerByType(BewertungDesGesundheitsrisikosRisikofaktorChoice.class,
-                new BewertungDesGesundheitsrisikosRisikofaktorChoiceDeSerializer());
-        builder.deserializerByType(BewertungDesGesundheitsrisikosRisikofaktorenChoice.class,
-                new BewertungDesGesundheitsrisikosRisikofaktorenChoiceDeSerializer());*/
+        builder.deserializerByType(AtiopathogeneseChoice.class, new AtiopathogeneseChoiceDeserializer());
+        builder.deserializerByType(AtiopathogeneseSchweregradChoice.class, new AtiopathogeneseSchweregradChoiceDeserializer());
+        builder.deserializerByType(AnatomischeLokalisationDiagnostischeSicherheitChoice.class,
+                new AnatomischeLokalisationDiagnostischeSicherheitChoiceDeserializer());
 
         return builder.build();
     }

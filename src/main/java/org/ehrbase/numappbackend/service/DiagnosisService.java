@@ -6,6 +6,7 @@ import org.ehrbase.numappbackend.opt.diagnosecomposition.DiagnoseComposition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -25,5 +26,9 @@ public class DiagnosisService {
     public VersionUid saveDiagnosis(UUID ehrId, DiagnoseComposition composition) {
         client.compositionEndpoint(ehrId).mergeCompositionEntity(composition);
         return composition.getVersionUid();
+    }
+
+    public Optional<DiagnoseComposition> getAssessment(UUID ehrId, VersionUid versionUid) {
+        return client.compositionEndpoint(ehrId).find(versionUid.getUuid(), DiagnoseComposition.class);
     }
 }

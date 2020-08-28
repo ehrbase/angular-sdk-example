@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -37,6 +38,17 @@ public class DiagnosisController {
         VersionUid versionUid = service.saveDiagnosis(ehrId, body);
         return ResponseEntity.ok(versionUid);
     }
+
+    @GetMapping(path = "/{ehr_id}/diagnosis/{id}")
+    public ResponseEntity<DiagnoseComposition> getAssessment(
+            @PathVariable(value = "ehr_id") UUID ehrId,
+            @PathVariable(value = "id") VersionUid id) {
+        Optional<DiagnoseComposition> composition = service.getAssessment(ehrId, id);
+
+        return composition.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // EXAMPLE section
 
     @GetMapping(path = "/example/diagnosis")
     public ResponseEntity<DiagnoseComposition> getExample() {

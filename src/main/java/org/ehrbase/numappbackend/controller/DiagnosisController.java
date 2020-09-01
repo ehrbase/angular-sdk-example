@@ -14,6 +14,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
+@RequestMapping(path = "/api")
+@CrossOrigin(origins = "*")
 public class DiagnosisController {
 
     private final DiagnosisService service;

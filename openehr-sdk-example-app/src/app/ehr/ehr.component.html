@@ -1,0 +1,21 @@
+<div class="m-3">
+  <div class="card bg-light">
+    <div class="card-body">
+      <h3 class="card-title">
+        EHR
+      </h3>
+      <div class="d-flex flex-row" >
+        <button class="btn btn-primary" type="button" (click)="createEhr()">Create new EHR</button>
+        <strong *ngIf="ehrId; else noEhr" class="ml-3">
+          EHR created ... <br/> EHR-ID: {{ehrId}}
+        </strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noEhr>
+  <strong class="ml-3">
+    An EHR must be created in order to save a composition.
+  </strong>
+<ng-template>

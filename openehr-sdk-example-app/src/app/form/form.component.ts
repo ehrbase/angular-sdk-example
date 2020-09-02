@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { OpenehrSdkService } from '../openehr-sdk.service';
+import { startWith, tap, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form',
@@ -284,6 +285,15 @@ export class FormComponent implements OnInit {
             placeholder: 'Bitte Datum des Auftretens/der Erstdiagnose angeben',
             type: 'date',
           },
+          hooks: {
+            onInit: (field) => {
+              return field.formControl.valueChanges.pipe(
+                tap(value => {
+                  this.model.problemDiagnose['datumDesAuftretensDerErstdiagnoseValue'] = value + 'T00:00:00.000Z'
+                }),
+              );
+            },
+          },
         },
         {
           key: 'feststellungsdatumValue',
@@ -292,6 +302,15 @@ export class FormComponent implements OnInit {
             label: 'Feststellungsdatum',
             placeholder: 'Bitte Feststellungsdatum angeben',
             type: 'date',
+          },
+          hooks: {
+            onInit: (field) => {
+              return field.formControl.valueChanges.pipe(
+                tap(value => {
+                  this.model.problemDiagnose['feststellungsdatumValue'] = value + 'T00:00:00.000Z'
+                }),
+              );
+            },
           },
         },
         {
@@ -438,6 +457,15 @@ export class FormComponent implements OnInit {
             label: 'Datum/Zeitpunkt der Genesung',
             placeholder: 'Bitte Datum der Genesung angeben',
             type: 'date',
+          },
+          hooks: {
+            onInit: (field) => {
+              return field.formControl.valueChanges.pipe(
+                tap(value => {
+                  this.model.problemDiagnose['datumZeitpunktDerGenesungValue'] = value + 'T00:00:00.000Z' 
+                }),
+              );
+            },
           },
         },
         {

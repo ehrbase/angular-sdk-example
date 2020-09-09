@@ -326,7 +326,7 @@ export class FormComponent implements OnInit {
               templateOptions: {
                 options: [
                   { value: 'LEICHT', label: 'Leicht'  },
-                  { value: 'MASIG', label: 'Mäßig'  },
+                  { value: 'MA_IG', label: 'Mäßig'  },
                   { value: 'SCHWER', label: 'Schwer'  },
                   ],
                 },
@@ -401,6 +401,9 @@ export class FormComponent implements OnInit {
                 {
                   key: 'value',
                   wrappers: ['panel'],
+                  templateOptions: {
+                    label: 'Ätiologie der Krankheit',
+                  },
                   fieldGroup: [
                     {
                       key: 'definingcode',
@@ -462,7 +465,7 @@ export class FormComponent implements OnInit {
             onInit: (field) => {
               return field.formControl.valueChanges.pipe(
                 tap(value => {
-                  this.model.problemDiagnose['datumZeitpunktDerGenesungValue'] = value + 'T00:00:00.000Z' 
+                  this.model.problemDiagnose['datumZeitpunktDerGenesungValue'] = value + 'T00:00:00.000Z'
                 }),
               );
             },

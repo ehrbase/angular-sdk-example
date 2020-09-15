@@ -2,6 +2,7 @@ package org.ehrbase.numappbackend.controller;
 
 import org.ehrbase.client.openehrclient.VersionUid;
 import org.ehrbase.numappbackend.opt.diagnosecomposition.DiagnoseComposition;
+import org.ehrbase.numappbackend.opt.openereactcarecomposition.OpenEREACTCareComposition;
 import org.ehrbase.numappbackend.service.DiagnosisService;
 import org.ehrbase.numappbackend.service.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,10 @@ public class DiagnosisController {
     @GetMapping(path = "/example/diagnosis")
     public ResponseEntity<DiagnoseComposition> getExample() {
         return ResponseEntity.of(example.createExample());
+    }
+
+    @GetMapping(path = "/example/care")
+    public ResponseEntity<OpenEREACTCareComposition> getCareExample() {
+        return ResponseEntity.of(example.createCareExample());
     }
 }

@@ -8,11 +8,20 @@
         <version>2.3.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>org.ehrbase</groupId>
-    <artifactId>num-app-backend</artifactId>
+    <artifactId>num-platform</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>num-app-backend</name>
+
+    <name>num-platform-backend</name>
     <description>NUM Project App Backend</description>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>num-platform-backend</module>
+        <module>num-platform-ui</module>
+    </modules>
 
     <repositories>
         <repository>
@@ -23,6 +32,8 @@
 
     <properties>
         <java.version>11</java.version>
+        <node.version>v12.18.4</node.version>
+        <npm.version>6.14.6</npm.version>
     </properties>
 
     <dependencies>
@@ -59,14 +70,5 @@
             <version>428c6a6</version>
         </dependency>
     </dependencies>
-
-    <build>
-    <plugins>
-    	<plugin>
-    		<groupId>org.springframework.boot</groupId>
-    		<artifactId>spring-boot-maven-plugin</artifactId>
-    	</plugin>
-    </plugins>
-    </build>
 
 </project>

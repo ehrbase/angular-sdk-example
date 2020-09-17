@@ -10,17 +10,17 @@
     </parent>
 
     <groupId>org.ehrbase</groupId>
-    <artifactId>num-platform</artifactId>
+    <artifactId>angular-sdk-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>num-platform-backend</name>
-    <description>NUM Project App Backend</description>
+    <name>Angular SDK Example</name>
+    <description>Angular SDK Example Application</description>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>num-platform-backend</module>
-        <module>num-platform-ui</module>
+        <module>angular-sdk-example-backend</module>
+        <module>angular-sdk-example-ui</module>
     </modules>
 
     <repositories>

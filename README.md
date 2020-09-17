@@ -1,4 +1,4 @@
-# NUM Platform
+# Angular SDK Example Application
 
 ## Build and Run the Application
 
@@ -13,5 +13,5 @@ Run `mvn clean install` in the project root.
 
 ### Run
 
-- Change context to backend `cd num-platform-backend`
+- Change context to backend `cd angular-sdk-example-backend`
 - Run `mvn spring-boot:run`

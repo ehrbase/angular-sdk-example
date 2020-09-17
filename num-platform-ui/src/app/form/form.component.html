@@ -1,0 +1,35 @@
+<div class="d-flex flex-row align-items-start justify-content-between m-3">
+  <div class="card mr-2 bg-light">
+    <div class="card-body">
+      <h3 class="card-title">
+        Formular Diagnose
+      </h3>
+      <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+        <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+        <button class="btn btn-primary" type="submit" style="margin-top:30px">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="card mr-2 bg-light">
+    <div class="card-body">
+      <h3 class="card-title">
+        Uploaded JSON (POST)
+      </h3>
+      <pre>{{model | json}}</pre>
+    </div>
+  </div>
+  <div class="card bg-light">
+    <div class="card-body">
+      <h3 class="card-title">
+        Fetched JSON (GET)
+      </h3>
+      <pre *ngIf="diagnosis; else noDiagnosis">{{diagnosis | json}}</pre>
+    </div>
+  </div>
+</div>
+
+<ng-template #noDiagnosis>
+  <div>
+    Once a composition has been uploaded successfully, it will be displayed here.
+  </div>
+</ng-template>

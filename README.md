@@ -1,7 +1,17 @@
-# NUM App Backend
+# NUM Platform
 
-## Running this Backend
+## Build and Run the Application
 
-- Run the included `./mvnw spring-boot:run`
-- Run your installed `mvn spring-boot:run` 
-- Or run the automatically recognized run config in your IDE
+### Requirements
+
+- Running EHRbase instance
+- maven (or use included wrapper)
+
+### Build
+
+Run `mvn clean install` in the project root.
+
+### Run
+
+- Change context to backend `cd num-platform-backend`
+- Run `mvn spring-boot:run`

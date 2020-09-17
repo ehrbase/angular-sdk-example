@@ -1,8 +1,16 @@
+### UI ###
+num-platform-ui/node_modules/
+num-platform-ui/dist/
+num-platform-ui/node/
+
+
+### Backend ###
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+num-platform-backend/src/main/resources/static/**
 
 ### STS ###
 .apt_generated

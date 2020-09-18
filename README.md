@@ -15,3 +15,5 @@ Run `mvn clean install` in the project root.
 
 - Change context to backend `cd angular-sdk-example-backend`
 - Run `mvn spring-boot:run`
+
+Open the browser and navigate to *http://localhost:8888/* to see the form.

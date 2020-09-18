@@ -1,6 +1,8 @@
 # OpenehrSdkExampleApp
 
-- go to `..num-app-backend/openehr-sdk-example-app`
+### Development
+
+- go to `.../angular-sdk-example/angular-sdk-example-ui`
 - run `npm i` to install packages
-- run `ng serve -o` to build and serve the application
-  - by default the application will run on http://localhost:4200
+- run `ng serve` to build and serve the application
+- open the browser navigate to *http://localhost:4200*
